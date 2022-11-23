@@ -30,6 +30,26 @@ EthernetWebServer server(80);
 //holds the current upload
 File fsUploadFile;
 
+// enum HTTPMethod
+//   {
+//     HTTP_ANY,
+//     HTTP_GET,
+//     HTTP_HEAD,
+//     HTTP_POST,
+//     HTTP_PUT,
+//     HTTP_PATCH,
+//     HTTP_DELETE,
+//     HTTP_OPTIONS
+//   };
+  
+//   enum HTTPUploadStatus
+//   {
+//     UPLOAD_FILE_START,
+//     UPLOAD_FILE_WRITE,
+//     UPLOAD_FILE_END,
+//     UPLOAD_FILE_ABORTED
+//   };
+
 void heartBeatPrint()
 {
   static int num = 1;
@@ -409,13 +429,13 @@ void initWebserver()
   });
 
   // Web Page handlers
-  server.serveStatic("/", FileFS, "/page1.html");
-  server.serveStatic("/page2", FileFS, "/page2.html");
-  server.serveStatic("/page3", FileFS, "/page3.html");
+  // server.serveStatic("/", FileFS, "/page1.html");
+  // server.serveStatic("/page2", FileFS, "/page2.html");
+  // server.serveStatic("/page3", FileFS, "/page3.html");
 
-  //server.serveStatic("/", SPIFFS, "/page1.html");
-  //server.serveStatic("/page2", SPIFFS, "/page2.html");
-  //server.serveStatic("/page3", SPIFFS, "/page3.html");
+  server.serveStatic("/", SPIFFS, "/page1.html");
+  server.serveStatic("/page2", SPIFFS, "/page2.html");
+  server.serveStatic("/page3", SPIFFS, "/page3.html");
 
   // Other usage with various web site assets:
   // server.serveStatic("/assets/css/test.css", SPIFFS, "/assets/css/test.css"); // Style sheet
@@ -436,7 +456,7 @@ void setup()
 
   Serial.print("\nStarting ESP32_FS_EthernetWebServer on " + String(BOARD_TYPE));
   Serial.print(" using ");
-  Serial.println(FS_Name);
+  // Serial.println(FS_Name);
   Serial.println("With " + String(SHIELD_TYPE));
   Serial.println(ETHERNET_WEBSERVER_VERSION);
 
@@ -494,6 +514,7 @@ void setup()
   //Ethernet.init(20);  // Teensy++ 2.0
   //Ethernet.init(15);  // ESP8266 with Adafruit Featherwing Ethernet
   //Ethernet.init(33);  // ESP32 with Adafruit Featherwing Ethernet
+  Ethernet.init(11);
 
 #ifndef USE_THIS_SS_PIN
 #define USE_THIS_SS_PIN   5   //22    // For ESP32

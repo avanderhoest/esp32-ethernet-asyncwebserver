@@ -21,10 +21,10 @@
 #define _ETG_LOGLEVEL_                      1
 
 // Optional SPI2
-#define USING_SPI2                          true
+#define USING_SPI2                          false
 
-#define USE_LITTLEFS                true
-#define USE_SPIFFS                  false
+#define USE_LITTLEFS                false
+#define USE_SPIFFS                  true
 
 // For ESP32
 #if USE_LITTLEFS
@@ -92,7 +92,7 @@
   // To override the default CS/SS pin. Don't use unless you know exactly which pin to use
   // You can define here or customize for each board at same place with BOARD_TYPE
   // Check @ defined(SEEED_XIAO_M0)
-  //#define USE_THIS_SS_PIN   22  //21  //5 //4 //2 //15
+  #define USE_THIS_SS_PIN   11  //21  //5 //4 //2 //15
 
   // Only one if the following to be true
   #define USE_ETHERNET_GENERIC  true
