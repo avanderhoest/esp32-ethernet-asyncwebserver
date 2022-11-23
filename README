@@ -1,0 +1,11 @@
+Voorbeeld van Khoih
+
+https://github.com/khoih-prog/EthernetWebServer/blob/master/examples/ESP32_FS_EthernetWebServer/defines.h
+
+Let op:
+
+* config instructies: EthernetWebServer/platformio/platformio.ini
+
+* vervangen server.h file :
+https://github.com/khoih-prog/EthernetWebServer#7-for-fixing-esp32-compile-error
+
